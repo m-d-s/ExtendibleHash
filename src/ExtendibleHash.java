@@ -18,21 +18,24 @@ public class ExtendibleHash {
   }
 
   public void add(int key, Page value) {
-    int bucketIdx = hash(key);
-    Bucket slot = this.table.get(bucketIdx);
+    Bucket slot = this.table.get(hash(key));
     if(slot.hasRoom()) {
       slot.add(value);
     } else {
-
+      if(slot.getLocDepth() == this.globDepth) {
+        this.doubleDirectory();
+      }
+      this.splitBucket(slot);
     }
   }
 
-  public void remove(int key) {
-
+  public boolean remove(int key) {
+    Bucket slot = this.table.get(hash(key));
+    return slot.remove(key);
   }
 
-  public Object get(int key) {
-
+  public Page get(int key) {
+    return this.table.get(hash(key)).find(key);
   }
 
   private void splitBucket(Bucket toSplit) {

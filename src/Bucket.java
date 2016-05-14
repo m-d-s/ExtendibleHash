@@ -16,6 +16,23 @@ public class Bucket {
     return currCap < 4;
   }
 
+  public int getLocDepth(){
+    return this.locDepth;
+  }
+
+  public void setLocDepth(int depth) {
+    this.locDepth = depth;
+  }
+
+  public Page find(int key) {
+    for(int i = 0; i < 3; ++i) {
+      if(this.data[i].key == key) {
+        return this.data[i];
+      }
+    }
+    return null;
+  }
+
   public void add(Page toAdd) {
     for(int i = 0; i < 3; ++i) {
       if(this.data[i] == null) {
