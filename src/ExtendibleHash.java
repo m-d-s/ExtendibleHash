@@ -39,14 +39,20 @@ public class ExtendibleHash {
   }
 
   private void splitBucket(Bucket toSplit) {
-
+	  // grab all items, redistribute 
   }
 
   private void doubleDirectory() {
-
+	  int oldNumBuckets = this.numBuckets;
+	  for (int i=0;i<oldNumBuckets;++i) {
+		  this.table.add(this.table.get(i));
+	  }
+	  this.numBuckets = this.numBuckets * 2;
+	  this.globDepth = this.globDepth + 1;
+	  
   }
 
-  private int hash(int depth) {
-
+  private int hash(int key, int depth) {
+	  return 1 << depth - 1 & key;
   }
 }
