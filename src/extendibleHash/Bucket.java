@@ -1,18 +1,19 @@
 package extendibleHash;
+
 public class Bucket {
   private int locDepth;
   private Page[] data;
   private int currCap;
 
   public Page[] getData() {
-	return data;
-}
+	  return data;
+  }
 
-public void setData(Page[] data) {
-	this.data = data;
-}
+  public void setData(Page[] data) {
+	  this.data = data;
+  }
 
-public Bucket(int depth) {
+  public Bucket(int depth) {
     this.data = new Page[4];
     for(int i = 0; i < 4; i++) {
       this.data[i] = null;

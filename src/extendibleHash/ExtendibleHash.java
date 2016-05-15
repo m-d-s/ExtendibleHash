@@ -1,9 +1,6 @@
 package extendibleHash;
 import java.util.ArrayList;
 
-/**
- * Created by msimpson on 5/14/16.
- */
 public class ExtendibleHash {
   private ArrayList<Bucket> table;
   private final int ancestorSpacing;
@@ -20,31 +17,31 @@ public class ExtendibleHash {
     }
   }
 
-	public ArrayList<Bucket> getTable() {
-		return table;
-	}
-	
-	public void setTable(ArrayList<Bucket> table) {
-		this.table = table;
-	}
-	
-	public int getNumBuckets() {
-		return numBuckets;
-	}
+  public ArrayList<Bucket> getTable() {
+    return table;
+  }
 
-	public void setNumBuckets(int numBuckets) {
-		this.numBuckets = numBuckets;
-	}
-	
-	public int getGlobDepth() {
-		return globDepth;
-	}
-	
-	public void setGlobDepth(int globDepth) {
-		this.globDepth = globDepth;
-	}
+  public void setTable(ArrayList<Bucket> table) {
+    this.table = table;
+  }
 
-public void add(int key, Page value) {
+  public int getNumBuckets() {
+    return numBuckets;
+  }
+
+  public void setNumBuckets(int numBuckets) {
+    this.numBuckets = numBuckets;
+  }
+
+  public int getGlobDepth() {
+    return globDepth;
+  }
+
+  public void setGlobDepth(int globDepth) {
+    this.globDepth = globDepth;
+  }
+
+  public void add(int key, Page value) {
     Bucket slot = this.table.get(hash(key, this.globDepth));
     if(slot.hasRoom()) {
       slot.add(value);
@@ -86,7 +83,6 @@ public void add(int key, Page value) {
 	  }
 	  this.numBuckets = this.numBuckets * 2;
 	  this.globDepth++;
-	  
   }
 
   private int hash(int key, int depth) {
