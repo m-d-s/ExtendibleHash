@@ -53,7 +53,9 @@ public class ExtendibleHash {
   private void splitBucket(int toSplit, Bucket splitee) {
     Page[] toDistribute = splitee.getData();
     while(toSplit < this.numBuckets) {
-      this.table.set(toSplit, new Bucket(this.globDepth));
+      if(this.table.get(toSplit) == splitee) {
+        this.table.set(toSplit, new Bucket(this.globDepth));
+      }
       toSplit += this.ancestorSpacing;
     }
     for(Page p : toDistribute) {
