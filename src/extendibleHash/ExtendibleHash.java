@@ -9,10 +9,9 @@ public class ExtendibleHash {
   private final int ancestorSpacing;
 
   public ExtendibleHash(int initialDepth) {
-    this.ancestorSpacing = (int)Math.pow((double)2,(double)initialDepth);
+    this.ancestorSpacing = this.numBuckets = 1 << initialDepth;
     this.globDepth = initialDepth;
     this.table = new ArrayList<>();
-    this.numBuckets = initialDepth * 2;
     for(int i = 0; i < this.numBuckets; ++i) {
       this.table.add(new Bucket(initialDepth));
     }
