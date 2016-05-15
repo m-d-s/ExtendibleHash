@@ -1,3 +1,4 @@
+package extendibleHash;
 import java.util.ArrayList;
 
 /**
@@ -56,7 +57,7 @@ public class ExtendibleHash {
 	  return 1 << depth - 1 & key;
   }
 
-  private void display() {
+  void display() {
     int length = this.table.size();
     for(int i = 0; i < length; ++i) {
       System.out.print("Bucket: " + i + ", ");

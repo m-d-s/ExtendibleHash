@@ -1,3 +1,4 @@
+package extendibleHash;
 public class Bucket {
   private int locDepth;
   private Page[] data;
