@@ -50,7 +50,8 @@ public void add(int key, Page value) {
       if(slot.getLocDepth() == this.globDepth) {
         this.doubleDirectory();
       }
-      this.splitBucket(slot);
+      this.splitBucket(key, slot);
+      slot.add(value);
     }
   }
 
@@ -63,8 +64,14 @@ public void add(int key, Page value) {
     return this.table.get(hash(key, this.globDepth)).find(key);
   }
 
-  private void splitBucket(Bucket toSplit) {
-    // grab all items, redistribute
+  private void splitBucket(int toSplit, Bucket splitee) {
+    while(toSplit < numBuckets) {
+      if(this.table.get(toSplit) == splitee) {
+        this.table.set(toSplit, new Bucket(this.globDepth));
+      }
+      //ancestors are spaced in two bit cycles
+      toSplit += 4;
+    }
   }
 
   private void doubleDirectory() {
