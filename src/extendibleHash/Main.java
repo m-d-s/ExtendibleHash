@@ -7,6 +7,7 @@ public class Main {
 	ExtendibleHash myHash = new ExtendibleHash(2);	
 	testAdd(myHash);
 	testDouble(myHash);
+	testSplit(myHash);
 	testRemove(myHash);
 	myHash.display();
   }
@@ -29,8 +30,17 @@ public class Main {
   }
   
   public static void testRemove (ExtendibleHash myHash) {
-//	  assert (myHash.remove(2) == true);
-//	  assert(myHash.get(2) == null);
+	  assert (myHash.remove(2) == true);
+	  assert(myHash.get(2) == null);
+  }
+  
+  public static void testSplit (ExtendibleHash myHash) {
+	  myHash.add(3, new Page(3));
+	  myHash.add(7, new Page(7));
+	  myHash.add(11, new Page(11));
+	  myHash.add(15, new Page(15));	 
+	  myHash.add(19, new Page(19));	 
+
   }
   
 }

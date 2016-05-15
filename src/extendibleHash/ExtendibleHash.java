@@ -89,7 +89,10 @@ public void add(int key, Page value) {
   }
 
   private int hash(int key, int depth) {
-	  return 1 << depth - 1 & key;
+	  System.out.println("Key: " + key +  " Depth: " + depth + " = " );
+	  int hash = key & ((1 << depth) - 1);
+	  System.out.println( hash);
+	  return hash;
   }
 
   void display() {
