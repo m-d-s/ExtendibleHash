@@ -6,10 +6,12 @@ import java.util.ArrayList;
  */
 public class ExtendibleHash {
   private ArrayList<Bucket> table;
+  private final int ancestorSpacing;
   private int numBuckets;
   private int globDepth;
 
   public ExtendibleHash(int initialDepth) {
+    this.ancestorSpacing = (int)Math.pow((double)2,(double)initialDepth);
     this.globDepth = initialDepth;
     this.table = new ArrayList<>();
     this.numBuckets = initialDepth * 2;
@@ -70,8 +72,7 @@ public void add(int key, Page value) {
       if(this.table.get(toSplit) == splitee) {
         this.table.set(toSplit, new Bucket(this.globDepth));
       }
-      //ancestors are spaced in two bit cycles
-      toSplit += 4;
+      toSplit += ancestorSpacing;
     }
     for(Page p : toDistribute) {
       this.add(p.key, p);
