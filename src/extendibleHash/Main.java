@@ -3,7 +3,7 @@ package extendibleHash;
 public class Main {
 	
   public static void main(String[] args) {
-	ExtendibleHash myHash = new ExtendibleHash(3);
+	ExtendibleHash myHash = new ExtendibleHash(2);
 	 myHash.display();
 	testAdd(myHash);
 	testDouble(myHash);
