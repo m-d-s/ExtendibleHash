@@ -7,6 +7,7 @@ public class Main {
 	ExtendibleHash myHash = new ExtendibleHash(2);	
 	testAdd(myHash);
 	testDouble(myHash);
+	testRemove(myHash);
 	myHash.display();
   }
   
@@ -25,6 +26,11 @@ public class Main {
 	  assert(myHash.getNumBuckets() == 8);  
 	  assert(myHash.getGlobDepth() == 3); 
 	  assert(myHash.getTable().size() == 8); 
+  }
+  
+  public static void testRemove (ExtendibleHash myHash) {
+	  assert (myHash.remove(2) == true); 
+	  assert(myHash.get(2) == null);  
   }
   
 }

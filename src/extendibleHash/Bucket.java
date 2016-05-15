@@ -4,7 +4,15 @@ public class Bucket {
   private Page[] data;
   private int currCap;
 
-  public Bucket(int depth) {
+  public Page[] getData() {
+	return data;
+}
+
+public void setData(Page[] data) {
+	this.data = data;
+}
+
+public Bucket(int depth) {
     this.data = new Page[4];
     for(int i = 0; i < 4; i++) {
       this.data[i] = null;
