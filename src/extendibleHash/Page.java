@@ -4,9 +4,9 @@ package extendibleHash;
  */
 public class Page {
   public Page (int key) {
-	  this.key = key;
-	  
+	  this.key = key;  
   }
 	
-  int key = 0;
+  public int key = 0;
+  
 }

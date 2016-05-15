@@ -6,7 +6,7 @@ public class Bucket {
 
   public Bucket(int depth) {
     this.data = new Page[4];
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < 4; i++) {
       this.data[i] = null;
     }
     this.locDepth = depth;
@@ -26,7 +26,7 @@ public class Bucket {
   }
 
   public Page find(int key) {
-    for(int i = 0; i < 3; ++i) {
+    for(int i = 0; i < 4; ++i) {
       if(this.data[i] != null && this.data[i].key == key) {
         return this.data[i];
       }
@@ -35,7 +35,7 @@ public class Bucket {
   }
 
   public void add(Page toAdd) {
-    for(int i = 0; i < 3; ++i) {
+    for(int i = 0; i < 4; ++i) {
       if(this.data[i] == null) {
         this.data[i] = toAdd;
         this.currCap++;
@@ -46,7 +46,7 @@ public class Bucket {
 
   public boolean remove(int key) {
     if(currCap > 0) {
-      for(int i = 0; i < 3; ++i) {
+      for(int i = 0; i < 4; ++i) {
         if(this.data[i] != null && this.data[i].key == key) {
           this.data[i] = null;
           this.currCap--;

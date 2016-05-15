@@ -18,7 +18,31 @@ public class ExtendibleHash {
     }
   }
 
-  public void add(int key, Page value) {
+	public ArrayList<Bucket> getTable() {
+		return table;
+	}
+	
+	public void setTable(ArrayList<Bucket> table) {
+		this.table = table;
+	}
+	
+	public int getNumBuckets() {
+		return numBuckets;
+	}
+
+	public void setNumBuckets(int numBuckets) {
+		this.numBuckets = numBuckets;
+	}
+	
+	public int getGlobDepth() {
+		return globDepth;
+	}
+	
+	public void setGlobDepth(int globDepth) {
+		this.globDepth = globDepth;
+	}
+
+public void add(int key, Page value) {
     Bucket slot = this.table.get(hash(key, this.globDepth));
     if(slot.hasRoom()) {
       slot.add(value);
