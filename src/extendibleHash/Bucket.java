@@ -39,6 +39,7 @@ public class Bucket {
       if(this.data[i] == null) {
         this.data[i] = toAdd;
         this.currCap++;
+        break;
       }
     }
   }
