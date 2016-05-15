@@ -1,5 +1,4 @@
 package extendibleHash;
-import extendibleHash.ExtendibleHash;
 
 public class Main {
 	

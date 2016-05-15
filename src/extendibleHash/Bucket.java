@@ -9,10 +9,6 @@ public class Bucket {
 	  return data;
   }
 
-  public void setData(Page[] data) {
-	  this.data = data;
-  }
-
   public Bucket(int depth) {
     this.data = new Page[4];
     for(int i = 0; i < 4; i++) {
@@ -28,10 +24,6 @@ public class Bucket {
 
   public int getLocDepth(){
     return this.locDepth;
-  }
-
-  public void setLocDepth(int depth) {
-    this.locDepth = depth;
   }
 
   public Page find(int key) {
@@ -73,5 +65,4 @@ public class Bucket {
     }
     System.out.println();
   }
-
 }
