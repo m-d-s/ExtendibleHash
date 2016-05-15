@@ -27,7 +27,7 @@ public class Bucket {
 
   public Page find(int key) {
     for(int i = 0; i < 3; ++i) {
-      if(this.data[i].key == key) {
+      if(this.data[i] != null && this.data[i].key == key) {
         return this.data[i];
       }
     }
@@ -46,7 +46,7 @@ public class Bucket {
   public boolean remove(int key) {
     if(currCap > 0) {
       for(int i = 0; i < 3; ++i) {
-        if(this.data[i].key == key) {
+        if(this.data[i] != null && this.data[i].key == key) {
           this.data[i] = null;
           this.currCap--;
           return true;
