@@ -55,4 +55,12 @@ public class Bucket {
     return false;
   }
 
+  public void display() {
+    System.out.print("Contents: ");
+    for(Page p : this.data) {
+      System.out.print(p.key + " ");
+    }
+    System.out.println();
+  }
+
 }
